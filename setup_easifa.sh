@@ -1,7 +1,7 @@
 #!/bin/bash
 
 echo "Automatically configuring the EasIFA environment..."
-
+source ~/.bashrc
 # 设置环境变量
 export CONDA_HOME=$(conda info --base)
 export EASIFA_ROOT=$(pwd)
