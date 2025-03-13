@@ -10,6 +10,7 @@ tasks:
     command: >
       bash /workspace/Downloads/Minconda3.sh -b -p ~/miniconda3 &&
       echo "export PATH=\"${HOME}/miniconda3/bin:\$PATH\"" >> ~/.bashrc &&
+      conda init &&
       source ~/.bashrc &&
       unzip /workspace/Downloads/ossutil-2.1.0-linux-amd64.zip -d ~/ && 
       cd ~/ossutil-2.1.0-linux-amd64 && 
