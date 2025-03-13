@@ -44,7 +44,7 @@ if [ ! -d $CONDA_HOME/envs/easifa_env ]; then
     # 下载后解压并配置
     echo "Extracting easifa_env.tar.gz..."
     mkdir $CONDA_HOME/envs/easifa_env
-    tar -xvf /workspace/Downloads/easifa_env.tar.gz -C $CONDA_HOME/envs/easifa_env -q
+    tar -xvf /workspace/Downloads/easifa_env.tar.gz -C $CONDA_HOME/envs/easifa_env
     # 激活 conda 环境
     source activate $CONDA_HOME/envs/easifa_env
     conda unpack
