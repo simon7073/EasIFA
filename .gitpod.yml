@@ -3,11 +3,11 @@ tasks:
   - init: > 
       echo "GitPod ... init ..." &&
       mkdir -vp /workspace/Downloads &&
-      sudo apt-get install aria2 -y &&
       wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O /workspace/Downloads/Minconda3.sh &&
       wget https://gosspublic.alicdn.com/ossutil/v2/2.1.0/ossutil-2.1.0-linux-amd64.zip  -O /workspace/Downloads/ossutil-2.1.0-linux-amd64.zip 
     
     command: >
+      sudo apt-get install aria2 -y &&
       bash /workspace/Downloads/Minconda3.sh -b -p ~/miniconda3 &&
       echo "export PATH=\"${HOME}/miniconda3/bin:\$PATH\"" >> ~/.bashrc &&
       conda init &&
@@ -21,7 +21,8 @@ tasks:
       ossutil config set accessKeySecret Pdsi4ooTus8m09IN0tTu2ozPiMOlDF && 
       ossutil config set region us-west-1 && 
       cd /workspace/EasIFA/ && 
-      bash ./setup_easifa.sh
+      bash ./setup_easifa.sh &&
+      source activate ~/miniconda3/envs/easifa_env
 
 # List the ports to expose. Learn more https://www.gitpod.io/docs/config-ports/
 ports:
