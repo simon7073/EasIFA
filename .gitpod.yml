@@ -1,4 +1,26 @@
 # List the start up tasks. Learn more https://www.gitpod.io/docs/config-start-tasks/
+tasks:
+  - init: > 
+      echo "GitPod ... init ..." &&
+      mkdir -vp /workspace/Downloads &&
+      sudo apt-get install aria2 -y &&
+      wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O /workspace/Downloads/Minconda3.sh &&
+      wget https://gosspublic.alicdn.com/ossutil/v2/2.1.0/ossutil-2.1.0-linux-amd64.zip  -O /workspace/Downloads/ossutil-2.1.0-linux-amd64.zip 
+    
+    command: >
+      bash /workspace/Downloads/Minconda3.sh -b -p ~/miniconda3 &&
+      echo "export PATH=\"${HOME}/miniconda3/bin:\$PATH\"" >> ~/.bashrc &&
+      source ~/.bashrc &&
+      unzip /workspace/Downloads/ossutil-2.1.0-linux-amd64.zip -d ~/ && 
+      cd ~/ossutil-2.1.0-linux-amd64 && 
+      chmod 755 ossutil && 
+      sudo mv ossutil /usr/local/bin/ && 
+      sudo ln -s /usr/local/bin/ossutil /usr/bin/ossutil && 
+      ossutil config set accessKeyID LTAI5tBNKn4CjFMgdWuFSzP8 && 
+      ossutil config set accessKeySecret Pdsi4ooTus8m09IN0tTu2ozPiMOlDF && 
+      ossutil config set region us-west-1 && 
+      cd /workspace/EasIFA/ && 
+      bash ./setup_easifa.sh
 
 # List the ports to expose. Learn more https://www.gitpod.io/docs/config-ports/
 ports:
