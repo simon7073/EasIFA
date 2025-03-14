@@ -50,7 +50,8 @@ if [ ! -d $CONDA_HOME/envs/easifa_env ]; then
     conda unpack
     # 安装 Python 包
     pip uninstall fair-esm -y
-    pip install git+https://github.com/facebookresearch/esm.git -i https://pypi.tuna.tsinghua.edu.cn/simple
+    #pip install git+https://github.com/facebookresearch/esm.git -i https://pypi.tuna.tsinghua.edu.cn/simple
+    pip install git+https://gitee.com/simon7073/esm.git -i https://pypi.tuna.tsinghua.edu.cn/simple
     pip install mysql-connector-python==8.2.0 mysqlclient==2.2.1 rxnfp flask_wtf gdown 
 
 else
