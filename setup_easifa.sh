@@ -29,14 +29,14 @@ if [ ! -d $CONDA_HOME/envs/easifa_env ]; then
     if [ ! -f /workspace/Downloads/easifa_env.tar.gz ]; then
         # 没有压缩包 则下载
         echo "Downloading easifa_env.tar.gz..."
-        gdown https://drive.google.com/uc?id=1kLIx2h6kPk6OvRVPWWqJvoKAYVvBx80x -O /workspace/Downloads/easifa_env.tar.gz
+        #gdown https://drive.google.com/uc?id=1kLIx2h6kPk6OvRVPWWqJvoKAYVvBx80x -O /workspace/Downloads/easifa_env.tar.gz
         # 判断是否下载成功
-        if [ $? -eq 0 ]; then
-            echo "Download succeeded."
-        else
+        #if [ $? -eq 0 ]; then
+        #    echo "Download succeeded."
+        #else
             ossutil cp oss://easifa/py38.tar.gz /workspace/Downloads/easifa_env.tar.gz
             echo "Download succeeded."
-        fi
+        #fi
     else
         # 有压缩包
         echo "easifa_env.tar.gz already exists, skipping download."
@@ -65,14 +65,14 @@ if [ ! -d $EASIFA_ROOT/checkpoints ]; then
     if [ ! -f /workspace/Downloads/checkpoints.zip ]; then
         # 没有压缩包 则下载
         echo "Downloading checkpoints.zip..."
-        gdown https://drive.google.com/uc?id=1ra11M4PpIalKx9ZZP-mrgj13IuFakjz3 -O /workspace/Downloads/checkpoints.zip
+        #gdown https://drive.google.com/uc?id=1ra11M4PpIalKx9ZZP-mrgj13IuFakjz3 -O /workspace/Downloads/checkpoints.zip
         # 判断是否下载成功
-        if [ $? -eq 0 ]; then
-            echo "Download succeeded."
-        else
+        #if [ $? -eq 0 ]; then
+        #    echo "Download succeeded."
+        #else
             ossutil cp -r oss://easifa/checkpoints.zip /workspace/Downloads/
             echo "Download succeeded."
-        fi
+        #fi
     else
         # 有压缩包
         echo "checkpoints.zip already exists, skipping download."
@@ -86,8 +86,8 @@ fi
 # 检查并下载 structures.csv.gz
 if [ ! -f $EASIFA_ROOT/dataset/raw_dataset/chebi/structures.csv.gz ]; then
     echo "Downloading structures.csv.gz..."
-    wget https://ftp.ebi.ac.uk/pub/databases/chebi/Flat_file_tab_delimited/structures.csv.gz -O $EASIFA_ROOT/dataset/raw_dataset/chebi/structures.csv.gz
-
+    #wget https://ftp.ebi.ac.uk/pub/databases/chebi/Flat_file_tab_delimited/structures.csv.gz -O $EASIFA_ROOT/dataset/raw_dataset/chebi/structures.csv.gz
+    ossutil cp -r oss://easifa/structures.csv.gz $EASIFA_ROOT/dataset/raw_dataset/chebi/structures.csv.gz
 else
     echo "structures.csv.gz already exists, skipping download."
 fi
